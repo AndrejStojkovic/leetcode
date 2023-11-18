@@ -1,0 +1,14 @@
+// 118 - Pascal's Triangle
+
+vector<vector<int>> generate(int numRows) {
+    vector<vector<int>> p;
+    for(int i = 0; i < numRows; i++) {
+        vector<int> row;
+        row.resize(i + 1, 1);
+        for(int j = 1; j < i; j++) {
+            row[j] = p[i - 1][j - 1] + p[i - 1][j];
+        }
+        p.push_back(row);
+    }
+    return p;
+}
